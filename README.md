@@ -8,4 +8,5 @@ To run the notebook, simply download the notebook and run the entire thing from 
 Additionally, our latex code is included in the Report.tex document. Here is a link to the pdf
 https://drive.google.com/file/d/100HyaEa_0cT9S_QB1hI3p_9qlr4P0_tJ/view?usp=drive_link
 
+No AI was used in the making of this project
 
