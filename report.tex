@@ -1,0 +1,110 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage[backend=biber, style=numeric]{biblatex}
+\addbibresource{references.bib}
+
+\title{Project 2: Report}
+\author{Dylan Gray \& Derek Hanson}
+\date{\today}
+
+\begin{document}
+\sloppy
+\maketitle
+
+\section{Background}
+Nonlinear differential equations are incredibly important in modern research.  They help us understand complex systems in anything from biology to chemistry, physics, economics, etc.  Nonlinear differential equations can often be difficult or even impossible to model by hand, so advanced methods, such as coding in Python, can be important for understanding these systems. \newline
+
+\noindent Python allows for easy analysis of the phase portrait and trajectories of nonlinear differential equations.  These give an idea of the behavior of the systems that these equations model. 
+
+\section{Models}
+
+\subsection{Lotka-Volterra Model \cite{listofnonlinearODEs}} 
+\begin{enumerate}
+    \item $\frac{dx}{dt}=\sigma x - \beta xy$
+    \item $\frac{dy}{dt}=\delta xy - \gamma y$
+\end{enumerate}
+The Lotka-Volterra Model models a predator-prey dynamic as seen in nature.  The variables $x$ and $y$ represent the populations of prey and predators, respectively.  The first term in both equations model the growth rate of $x$ and $y$, respectively, in respect to time.  The second terms in both equations model the decay rate of $x$ and $y$, respectively, in respect to time.\newline
+
+\noindent The growth rate of $x$ is affected by $\sigma$, a variable representing the growth factor of a population, and $x$, the quantity of population able to reproduce.  $x$ is not affected by food supply as it is assumed to have infinite.  The growth rate of $y$ is affected by $\delta$, a variable representing the growth factor of a population, $y$, the quantity of population able to reproduce, and $x$, the variable food supply, dependent on the prey population.\newline
+
+\noindent The decay rate of $x$ is affected by $\beta$, a variable representing the decay factor of a population, $y$, the variable homicide rate dependent on the predator population, and $x$, the variable natural death rate, dependent on the prey population.  The decay rate of $y$ is affected by $\gamma$, a variable representing the decay factor of a population, and $y$, the variable natural death rate, dependent on the predator population.  The predator population is assumed to have no natural predators.\newline
+
+\noindent The solutions to this equation, with their initial conditions, can be found in figures. \ref{fig:lotka-volterra_models}
+
+
+\subsection{Lorenz Attractor Model\cite{lorenz1963}} 
+\begin{enumerate}
+    \item $\frac{dx}{dt}=\sigma(y-x)$
+    \item $\frac{dy}{dt}=x(\rho-z)-y$
+    \item $\frac{dz}{dt}=xy-\beta z$
+\end{enumerate}
+
+\noindent The Lorenz system is a system of ODEs that is used to model atmospheric convection in three dimensions. \\
+
+\noindent The parameters, $\sigma, \rho, \beta$ of the model represent physical qualities of the system. $\sigma$ represents the Prandtl Number, which measures the ratio of momentum diffusivity to thermal diffusivity of the fluid. $\rho$ represents Rayleigh's Number, which is related to whether heat transfer comes from conduction or convection. $\beta$ represents the aspect ratio of the convective fluid layer. \\
+
+\noindent The variables, $x, y, z$ of the system represent three changing properties. $x$ represents the intensity of convection. $y$ represents the temperature difference between rising and falling currents. $z$ represents the distortion of the vertical temperature profile compared to a linear temperature profile.\\
+
+\noindent This system is famous for its representation of the "butterfly effect," and for being a foundation of chaos theory. It is deterministic, and yet tiny changes to initial conditions can produce entirely different and hard to predict results. Under the conditions used in our project, the system is non periodic, meaning it will never settle down and never repeat. \\
+
+\noindent Included are some 3d plots of the phase space, which we made, describing behavior of the system. They all use parameters $\sigma = 10$, $\rho = 28$, and $\beta = 8/3$, conditions which produce chaos as described in the original paper \cite{lorenz1963}, with varying initial conditions.
+
+\section{Figures}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{image.png}
+    \caption{Populations Over Time \& Phase Portrait Over Initial Conditions for the Lotka-Volterra Model}
+    \label{fig:lotka-volterra_models}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{phaseportlorenz.png}
+    \caption{Phase Portrait Over Initial Conditions for the Lorenz Attractor}
+    \label{fig:lorenz_phase_portrait}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{xandyovertimelorenz.png}
+    \caption{$x$, $y$, $z$ with Respect to $t$ for the Lorenz Attractor}
+    \label{fig:lorenz_variables_over_time}
+\end{figure}
+
+
+\section{Error from Models}
+\noindent As each of these models has no exact solution, we cannot compute the error against the exact solutions.
+
+
+\section{Author Contributions}
+\subsection{Derek's Contributions}
+\begin{itemize}
+    \item Created the code for the Lorenz Attractor model
+    \item Wrote the description of the model under the "Models" section
+    \item Created the bibliography and "References" section
+    \item 50\% of workload
+\end{itemize}
+
+\subsection{Dylan's Contributions}
+\begin{itemize}
+    \item Created the code for the Lotka-Volterra Model
+    \item Wrote the description of the model under the "Models" section
+    \item Made the "Figures" section
+    \item Wrote the "Background" section
+    \item 50\% of workload
+\end{itemize}
+
+\section{References}
+
+\fullcite{lorenz1963} \\
+
+
+\noindent \fullcite{listofnonlinearODEs}
+
+\end{document}
+
